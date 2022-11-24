@@ -1,0 +1,28 @@
+#QUESTION : 
+ /* Write the SQL query to get the third maximum movie runtime from the movies table.*/
+
+#While there are several ways of achieving same objective in #SQL #Query, in solving the above task, I employed #OFFSET #Keyword.
+OFFSET is used to determine which rows of dataset to return based on their position in the query and not their by their values. 
+Hence, It determines the number of rows to skip from the beginning of the returned data before presenting the results.
+When combined with LIMIT below, the offset function is retrieved before the limit. 
+So OFFSET 2, skip first 2 rows to land on the 3rd row. Then LIMIT 1 picks the 3rd row. 
+
+You can achieve same output with subqueries, I just thought to put the OFFSET Function out there. 
+
+SELECT 
+  *
+FROM movies
+ORDER BY runtime DESC
+LIMIT 1 OFFSET 2;
+
+I used PosgreSQL for this challenge.
+
+How would you have solved this?
+
+Trust you find this useful. 
+#Cavaet: #The #data is #fictitious and not a real dataset.
+#Follow, #share, #comment and #like to help someone somewhere.
+#LinkedIn: https://lnkd.in/dJzSUWQF
+#Twitter: https://lnkd.in/dfPx-c3a
+
+#microsoftazure #microsoftpowerbi #microsoft #googleanalytics #dataanalytics #datacamp #dataarchitect
