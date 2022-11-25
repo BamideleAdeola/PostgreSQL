@@ -1,0 +1,27 @@
+#QUESTION : 
+ /* Write the SQL query to get the 10th maximum movie runtime from the movies table.*/
+
+#Previously, I used #LIMIT and #OFFSET to answer the 3rd maximum movie runtime. That was because there were no ties within the rows. 
+However, answering almost similar question with more than one runtime value like the above question would need another approach. 
+So considering the possibilities of ties within the rows,  a DENSE_RANK() window function would suffice. 
+
+DENSE_RANK() ranks with no gaps. 
+Unlike the RANK() function, the DENSE_RANK() function returns consecutive rank values. 
+Rows in each partition receive the same ranks if they have the same values. 
+Hence, if there are 4 different movies having same runtime rate, they would be assigned same value.
+
+SELECT * FROM
+  (SELECT title, genre, runtime,
+	DENSE_RANK() OVER(ORDER BY runtime DESC) AS runtime_ranks
+  FROM movies) A
+WHERE runtime_ranks = 10;
+
+How would you have solved this?
+
+Trust you find this useful. 
+#Cavaet: #The #data is #fictitious and not a real dataset.
+#Follow, #share, #comment and #like to help someone somewhere.
+#LinkedIn: https://lnkd.in/dJzSUWQF
+#Twitter: https://lnkd.in/dfPx-c3a
+
+#microsoftazure #microsoftpowerbi #microsoft #googleanalytics #dataanalytics #datacamp #dataarchitect
