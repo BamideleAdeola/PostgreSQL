@@ -15,7 +15,7 @@ FROM movies
 ORDER BY runtime DESC
 LIMIT 1 OFFSET 2;
 
-I used PosgreSQL for this challenge.
+I used PostgreSQL for this challenge.
 
 How would you have solved this?
 
