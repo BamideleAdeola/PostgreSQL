@@ -13,7 +13,7 @@ FROM film;
 -- "Seq Scan on film  (cost=0.00..64.00 rows=1000 width=384)"
 
 
-
+-- The EXPLAIN Function
 --------
 EXPLAIN 
 SELECT title, release_year 
