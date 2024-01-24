@@ -7,7 +7,7 @@ SELECT *
 FROM film;
 
 -- Explain the query performance of running all queries and just 2 columns
-EXPLAIN 
+EXPLAIN  -- query performance is being explained with the explain function
 SELECT * 
 FROM film;
 -- "Seq Scan on film  (cost=0.00..64.00 rows=1000 width=384)"
