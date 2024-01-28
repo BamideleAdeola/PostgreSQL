@@ -63,7 +63,7 @@ SELECT title,
        release_year,
 
   (SELECT MAX(amount)
-   FROM payment) AS max_amount
+   FROM payment) AS max_amount   -- max amount
 FROM film;
 
 
