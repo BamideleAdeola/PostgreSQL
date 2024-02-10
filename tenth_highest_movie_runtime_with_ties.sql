@@ -5,4 +5,4 @@ SELECT * FROM
 (SELECT title, genre, runtime,
 	DENSE_RANK() OVER(ORDER BY runtime DESC) AS runtime_ranks
 FROM movies) A
-WHERE runtime_ranks = 10; --10th maximum movie 
+WHERE runtime_ranks = 10; --10th maximum movie... 
