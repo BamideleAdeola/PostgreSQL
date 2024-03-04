@@ -1,0 +1,172 @@
+
+------------------------
+-- QUERY A SINGLE TABLE
+-------------------------
+
+-- Fetch all columns
+SELECT * 
+FROM film;
+
+-- Fetch specific fields from the film table; field_id, title, release_year, rental_duration
+
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film;
+
+--Sorting data - (ORDER BY CLAUSE) Not say nothing is Ascending
+-- sort the above query by rental_duration in descending order
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+ORDER BY rental_duration DESC;
+
+-- sort the above query by title in ascending order and rental_duration in descending order
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration,
+	rental_rate
+FROM film
+ORDER BY 
+	 title ASC, rental_rate DESC;
+
+-- sort the above query by rental_duration in ascending order
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+ORDER BY rental_duration ASC;
+
+------------------
+--Filtering Output - (WHERE CLAUSE)
+------------------
+/* Fetch the film_id, title, release_year, rental_duration	for rental_duration greater than 4
+and arranged in descending order*/
+	--1. COMPARISON FILTERS
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+WHERE rental_duration > 4
+ORDER BY rental_duration DESC;
+
+-- Fetch the film_id, title, release_year, rental_duration for Rebel Airport title
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+WHERE title = 'Rebel Airport';
+
+	-- 2. TEXT FILTERS (OPERATOS)
+-- Fetch the film_id, title, release_year, rental_duration for titles that start with G.
+
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+WHERE title LIKE 'G%'
+ORDER BY title ASC;
+
+-- Fetch the film_id, title, release_year, rental_duration for titles that start with G and ends with e
+
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+WHERE title LIKE 'G%' 
+	AND title LIKE '%e'
+ORDER BY title ASC;
+
+-- Fetch the film_id, title, release_year, rental_duration for titles that start with any letter follwed by name
+
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+WHERE title LIKE '%Name'
+ORDER BY title ASC;
+
+-- OTHER OPERATIONS - BETWEEN
+
+/* Fetch the film_id, title, release_year, rental_duration	that have for rental_duration between 3 and 5*/
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+WHERE rental_duration BETWEEN 3 AND 5;
+------------------------------------
+SELECT
+	film_id,
+	title,
+	release_year,
+	rental_duration	
+FROM film
+WHERE rental_duration > 3 AND rental_duration < 7;
+
+
+---------------------------------
+-- ALIASES FOR COLUMNS AND TABLES
+---------------------------------
+
+SELECT
+	film_id AS id,
+	title AS film_Title,
+	release_year AS year,
+	rental_duration AS duration	
+FROM film;
+
+
+-----
+-- UPDATE
+-------
+
+UPDATE film
+SET rating = 'G'
+WHERE rating = 'PG' 
+				 
+				 
+SELECT distinct rating from film;
+
+
+
+-- AGGREGATION 
+
+-- Find the total rental rate and count of movies BY RATING for each film
+SELECT
+	rating,
+	sum(rental_rate) AS totalRentalRate,
+	COUNT(*) AS totalCount
+FROM film
+GROUP BY rating
+
+
+-- Find the total rental rate and count of movies BY RATING for each film greater than 600 totalrate
+
+SELECT
+	rating,
+	sum(rental_rate) AS totalRentalRate,
+	COUNT(*) AS totalCount
+FROM film
+GROUP BY rating
+HAVING sum(rental_rate) > 600;
