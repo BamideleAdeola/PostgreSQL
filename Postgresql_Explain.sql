@@ -2,7 +2,7 @@
 
 -- SELECT, GROUP BY, FILTER
 
---Select all columns from the film table
+--Select all columns from the film table.
 SELECT * 
 FROM film;
 
