@@ -3,7 +3,7 @@ SELECT * FROM film;--
 
 SELECT rating, AVG(rental_duration)
 FROM film
-GROUP BY rating; --
+GROUP BY rating; -----
 
 -- let’s find out how many films there are for each rating and rental rate combination:
 SELECT rating,
