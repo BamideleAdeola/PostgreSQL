@@ -1,5 +1,5 @@
 EXPLAIN 
-SELECT * FROM film;--
+SELECT * FROM film;----
 
 SELECT rating, AVG(rental_duration)
 FROM film
